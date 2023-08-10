@@ -3,6 +3,7 @@
 <title>Login</title>
 </head>
 <body>
+<div class="container">
 <h1>hey, Welcome ${name}  </h1>
  <form method="post">
         <label for="name">Name:</label><br>
@@ -13,6 +14,6 @@
         
         <input type="submit" value="Submit">
 </form>
-
+</div>
 </body>
 </html>
