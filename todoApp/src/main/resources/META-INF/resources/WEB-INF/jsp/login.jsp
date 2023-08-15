@@ -1,8 +1,5 @@
-<html>
-<head>
-<title>Login</title>
-</head>
-<body>
+<%@ include file="common/header.jspf" %>
+<%@ include file="common/navigation.jspf" %>	
 <div class="container">
 <h1>hey, Welcome ${name}  </h1>
  <form method="post">
@@ -15,5 +12,4 @@
         <input type="submit" value="Submit">
 </form>
 </div>
-</body>
-</html>
+<%@ include file="common/footer.jspf" %>
