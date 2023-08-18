@@ -2,8 +2,12 @@ package com.springboot.todoApp.todo;
 
 import java.time.LocalDate;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
 import jakarta.validation.constraints.Size;
 
+@Entity
 public class Todo {
 
 	public Todo(int id, String username, String description, LocalDate target, boolean done) {
@@ -15,6 +19,8 @@ public class Todo {
 		this.done = done;
 	}
 
+	@Id
+	@GeneratedValue
 	private int id;
 	private String username;
 	@Size(min = 10, message="enter atleast 10 characters")

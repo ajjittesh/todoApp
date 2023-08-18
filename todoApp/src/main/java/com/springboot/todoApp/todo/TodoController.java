@@ -3,6 +3,8 @@ package com.springboot.todoApp.todo;
 import java.time.LocalDate;
 import java.util.List;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -26,7 +28,8 @@ public class TodoController {
 
 	@RequestMapping("say-heytodo")
 	public String findByName(ModelMap model) {
-		List<Todo> todos = todoservice.findByUsername("Ajjietesh");
+		String username = getUsername();
+		List<Todo> todos = todoservice.findByUsername(username);
 		model.addAttribute("todos", todos);
 		return "listTodos";
 	}
@@ -72,4 +75,10 @@ public class TodoController {
 		return "redirect:say-heytodo";
 	}
 
+	private String getUsername() {
+
+		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+		return authentication.getName();
+	}
 }
